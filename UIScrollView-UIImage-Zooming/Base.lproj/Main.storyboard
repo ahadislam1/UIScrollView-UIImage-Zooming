@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,63 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIScrollView_UIImage_Zooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtk-d4-oMm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffY-rZ-f4f" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nyc-subway-map" translatesAutoresizingMaskIntoConstraints="NO" id="G6b-BX-dax">
+                                                <rect key="frame" x="20" y="20" width="374" height="778"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="G6b-BX-dax" secondAttribute="trailing" constant="20" symbolic="YES" id="60A-ui-9ky"/>
+                                            <constraint firstAttribute="bottom" secondItem="G6b-BX-dax" secondAttribute="bottom" constant="20" symbolic="YES" id="Le8-JD-n0l"/>
+                                            <constraint firstItem="G6b-BX-dax" firstAttribute="leading" secondItem="ffY-rZ-f4f" secondAttribute="leading" constant="20" symbolic="YES" id="Nej-nB-6Gu"/>
+                                            <constraint firstItem="G6b-BX-dax" firstAttribute="top" secondItem="ffY-rZ-f4f" secondAttribute="top" constant="20" symbolic="YES" id="PHK-Gq-BpY"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Znz-fA-b1Q" firstAttribute="bottom" secondItem="ffY-rZ-f4f" secondAttribute="bottom" id="0zK-6x-Rmt"/>
+                                    <constraint firstItem="ffY-rZ-f4f" firstAttribute="top" secondItem="Znz-fA-b1Q" secondAttribute="top" id="8VG-ke-PG7"/>
+                                    <constraint firstItem="Znz-fA-b1Q" firstAttribute="trailing" secondItem="ffY-rZ-f4f" secondAttribute="trailing" id="fxm-iy-OKF"/>
+                                    <constraint firstItem="ffY-rZ-f4f" firstAttribute="leading" secondItem="Znz-fA-b1Q" secondAttribute="leading" id="y0I-gU-eWt"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="53B-9n-bk8"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Znz-fA-b1Q"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="FHE-Y1-XM8"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rtk-d4-oMm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YWl-lk-W9E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rtk-d4-oMm" secondAttribute="bottom" id="bDr-sU-jfZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rtk-d4-oMm" secondAttribute="trailing" id="fC5-OY-h4M"/>
+                            <constraint firstItem="rtk-d4-oMm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ic0-cs-PYI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="rtk-d4-oMm" id="hWY-Ts-sat"/>
+                        <outlet property="subwayMap" destination="G6b-BX-dax" id="Ebq-Mf-1Ko"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nyc-subway-map" width="2700" height="3314"/>
+    </resources>
 </document>
